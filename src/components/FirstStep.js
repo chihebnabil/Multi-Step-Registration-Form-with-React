@@ -1,30 +1,33 @@
 import React from 'react';
+import MainContainer from "../MainContainer"
+
 import {
-    BrowserRouter as Router,
+
     Route,
     Link
 } from 'react-router-dom';
 class FirstStep extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      username: '',
-      age: ''
+    constructor(props) {
+        super(props);
+        console.log(this.props)
+        this.state = {
+            username: '',
+            age: ''
+        }
+
+        this.onChange = this.onChange.bind(this);
+
     }
-
-    this.onChange = this.onChange.bind(this);
-
-  }
-  onChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
-  }
+    onChange(e) {
+        this.setState({ [e.target.name]: e.target.value });
+    }
 
     render() {
         return (<div>
 
             <div className="container-fluid">
                 <div className="col-md-4 col-md-push-4">
-
+                    <MainContainer></MainContainer>
                     <div className="form-group">
                         <label htmlFor="username">username</label>
                         <input type="text" name="username" className="form-control"></input>
@@ -34,7 +37,7 @@ class FirstStep extends React.Component {
                         <input type="text" name="age" className="form-control"></input>
 
                     </div>
-                    <Link to={`/SecondStep/`}  className="btn btn-primary btn-block">Next</Link>
+                    <Link to={`/SecondStep/`} className="btn btn-primary btn-block">Next</Link>
 
 
 
